@@ -1,0 +1,191 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a1b9a, #d81b60, #f8bbd0, #f5f5f5); /* Degradado de fondo */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Asegura que el contenedor principal esté centrado verticalmente */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    width: 90%; /* Ancho del 90% de la pantalla en desktop */
+    max-width: 1200px; /* Opcional: Limita el ancho máximo */
+    background-color: rgba(255, 255, 255, 0.401); /* Transparencia blanca para el contenedor principal */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: auto; /* Ajusta la altura según el contenido */
+}
+
+/* Ajustes para vista de tablet y mobile */
+@media screen and (max-width: 1024px) {
+    body {
+        justify-content: flex-start; /* Ajusta la alineación en la vista de tablet y mobile */
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 95%; /* Ajusta el ancho del contenedor en tablet y mobile */
+        height: 95%; /* Ajusta la altura del contenedor en tablet y mobile */
+        max-width: none; /* Elimina el límite de ancho máximo */
+        max-height: none; /* Elimina el límite de altura máxima */
+        overflow: auto; /* Permite el desplazamiento si el contenido es demasiado alto */
+    }
+}
+
+.encrypt-area, .output-area {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.648); /* Transparencia blanca */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.output-area h2{
+    font-size: medium !important;
+    color: #0056b3;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+#alertMessage {
+    display: none;
+    color: #979074;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: gray; /* Color gris cuando está deshabilitado */
+    cursor: not-allowed; /* Cambiar el cursor cuando está deshabilitado */
+}
+
+#clearButton {
+    background-color: #007bff;
+}
+
+#clearButton:hover {
+    background-color: #0056b3;
+}
+
+#outputList {
+    padding: 10px;
+    min-height: 150px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: none; /* Por defecto oculto hasta que haya contenido */
+    color: #39373b;
+}
+
+.output-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.output-item p {
+    margin: 0;
+    flex-grow: 1;
+}
+
+.copy-icon {
+    font-size: 14px;
+    cursor: pointer;
+    color: #007bff;
+    margin-left: 10px;
+}
+
+.copy-icon:hover {
+    color: #0056b3;
+}
+
+@media screen and (min-width: 769px) {
+    .container {
+        flex-direction: row;
+        justify-content: center; /* Centra el contenido horizontalmente */
+        align-items: center; /* Centra el contenido verticalmente */
+        width: 95%; /* Ajusta el ancho del contenedor en mobile */
+        height: 95%; /* Ajusta la altura del contenedor en mobile */
+        margin: auto;
+    }
+
+    .encrypt-area {
+        width: 90%;
+        height: 50%;
+    }
+
+    .output-area {
+        width: 90%;
+        height: 50%;
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #outputList {
+        display: block;
+    }
+
+    textarea {
+        height: 150px; /* Aumentar altura del área de texto en desktop */
+    }
+
+    .output-item {
+        flex-direction: row; /* Icono de copiar a un lado de la palabra en desktop */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin: auto;
+        width: 90%; /* Ajusta el ancho del contenedor en mobile */
+        height: 95%; /* Ajusta la altura del contenedor en mobile */
+    }
+
+    .buttons {
+        flex-direction: column; /* Botones uno debajo del otro en mobile */
+    }
+
+    .output-area h2{
+        font-size: 20px;
+    }
+}
